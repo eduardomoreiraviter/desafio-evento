@@ -17,6 +17,9 @@ public class Atividade {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @OneToOne(mappedBy = "atividade", cascade = CascadeType.ALL)
+    private Bloco bloco;
+
     public Atividade() {
     }
 
