@@ -2,6 +2,9 @@ package com.viter.desafiodemo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_atividade")
 public class Atividade {
@@ -19,6 +22,9 @@ public class Atividade {
 
     @OneToOne(mappedBy = "atividade", cascade = CascadeType.ALL)
     private Bloco bloco;
+
+    @ManyToMany(mappedBy = "atividades")
+    private Set<Participante> participante = new HashSet<>();
 
     public Atividade() {
     }
